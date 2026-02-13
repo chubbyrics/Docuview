@@ -153,7 +153,7 @@ function getActualFileName(displayName) {
         "Which adapter will you need": "Which adapter you need",
 
         // --- QRG MAPPING (AUDITED) ---
-        "1099C PPT": "qrg  1099C PPT",
+        "1099C PPT": "1099C PPT",
         "Add Funds through Client Portal - Walkthrough": "Add Funds through Client Portal - Walkthrough",
         "Adding & Removing Co-Client QRG": "Adding & Removing Co-Client QRG 7.20.23",
         "Affiliate Model": "Affiliate Model 9.26.2025",
@@ -165,7 +165,7 @@ function getActualFileName(displayName) {
         "COA Graduation Email QRG": "COA Graduation Email QRG",
         "Creating SPAA - Updating Bank Info QRG": "Creating SPAA - Updating Bank Info QRG 7.26.23",
         "Debt Consolidation QRG_ CLG": "Debt Consolidation QRG_ CLG 7.26.23",
-        "Deceased Client QRG": "Deceased Client QRG 7.26.23",
+        "Deceased Client QRG": "Deceased Client 10.2.2025",
         "Draft Change QRG": "Draft Change QRG 9.21.23",
         "Draft Change Talking Points": "Draft Change Talking Points 11.19.25",
         "Draft Edits via Client Portal": "Draft Edits via Client Portal 11-25-2024",
@@ -209,6 +209,7 @@ function createDocItem(docName) {
     
     // 1. Identify if the file is a PDF (based on your specific list)
     const pdfFiles = [
+
         "Headset Audio Troubleshooting Tips 7.26.2023 (1)",
         "How to setup your new PC 7.25.2023",
         "Turning off cache exchange mode (3)7.20.2023",

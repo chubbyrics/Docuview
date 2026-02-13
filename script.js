@@ -1,9 +1,14 @@
-// Full Alphabetized SOP Library
+/**
+ * Mitch's Docuview - Professional Document Library
+ * Final Consolidated Script
+ */
+
+// 1. SOP ARRAY (Standard Operating Procedures)
 const sopDocs = [
     "Accessing Client Emails and Faxes", "Accessing Global", "Accronyms", "Adding an Alert", 
-    "Adding Unmatched Debt", "Adding/ Removing Co-Client", 
-    "Attaching Files to Request and Client File", "Authorized Third Parties", "Cancel Request", 
-    "Cancel Request with Active SIFs", "Clear Cache_ Cookies browser", "Client Portal - Multi Factor Authentication", 
+    "Adding Unmatched Debt", "Adding/ Removing Co-Client", "Attaching Files to Request and Client File", 
+    "Authorized Third Parties", "Cancel Request", "Cancel Request with Active SIFs", 
+    "Clear Cache_ Cookies browser", "Client Portal - Multi Factor Authentication", 
     "Client Portal Impersonation", "Client Portal Login & Reset", "Client Portal Trouble Shoot", 
     "Client Referral Program", "Client Verification MultiFactor Auth and Recorded Line Disclosure", 
     "Completed Courtesy Call", "Composing New Emails through inContact - CS", 
@@ -33,12 +38,32 @@ const sopDocs = [
     "Using Microsoft teams", "Warm Transfer via InContact", "Which adapter will you need"
 ];
 
+// 2. QRG ARRAY (Quick Reference Guides & Talking Points)
+const qrgDocs = [
+    "1099C PPT", "Add Funds through Client Portal - Walkthrough", "Adding & Removing Co-Client QRG", 
+    "Affiliate Model", "Agent Notes QRG", "Authorized Third Parties QRG", "Cancel Request - CS", 
+    "Client Portal - MultiFactorAuthentication Client", "Client Sensitive Changes Talking Points", 
+    "COA Graduation Email QRG", "Creating SPAA - Updating Bank Info QRG", "Debt Consolidation QRG_ CLG", 
+    "Deceased Client QRG", "Draft Change QRG", "Draft Change Talking Points", "Draft Edits via Client Portal", 
+    "Global Expedited Deposits QRG", "Global Holdings Mobile App", "Global Validation Request QRG", 
+    "Hardship Plan QRG", "High Value", "How to setup your new PC", "IC Dispositions QRG", 
+    "Legal Examples", "Legal Training", "Legal_PreLegal QRG CLG", "Mail request QRG", 
+    "New Creditor Profile QRG", "OneSpan QRG", "PCA Reject 4.13 QRG", 
+    "Pre-settlement and Settlements Authorization QRG", "Processing Amendments in the Calculator QRG", 
+    "Program Change QRG", "Refund-Withdrawal Request QRG", "Request Guide", "Retainer QRG", 
+    "SOS_RFSS Change effective 1.1.23 Talking Points", "Spanish Queue QRG", 
+    "Special Draft, Redraft and Program Draft QRG", "Talking points for alternative to OB email", 
+    "Texting Clients Via QB QRG", "Turning off cache exchange mode", 
+    "Unacceptable Creditors or additional requirements", "Update Contact Information QR", 
+    "UW Guidelines", "UW(AFF) Guidelines", "Viewing Creditor Payments QRG"
+];
+
 /**
- * THE MAPPING TABLE
- * This matches the "Display Name" on the site to the "Actual Filename" in your folder.
+ * MAPPING TABLE
  */
 function getActualFileName(displayName) {
     const fileMap = {
+        // --- SOP MAPPING (UNCHANGED) ---
         "Accessing Client Emails and Faxes": "Accessing Client Email and Fax 7.20.23",
         "Accessing Global": "Accessing Global 12.4.24",
         "Accronyms": "COA Shorthand",
@@ -93,76 +118,152 @@ function getActualFileName(displayName) {
         "Legal Summons": "Legal Summons 8.26.20251", 
         "Legal Summons Review": "Legal Summons - ESCL team",
         "MIC not working on headset": "Mic not working on headset 7.20.2023",
-        "Natural Disaster Plan of Action": "Natural Disaster Plan of Action",
-         "NCA transfer Key" : "NCA Transfer Key 7.26.2023", 
-         "New Creditor Profile" : "New Creditor Profile 7.24.2023", 
-         "NSF Return Reasons and Codes" : "NSF Return Reasons and Codes 7.19.2023", 
-        "Obtaining Settled in Full Letter (SIF)" : "Obtaining Settled in Full Letters FAQ 7.20.2023", 
-        "OneDrive file transfer guide" : "OneDrive file transfer guide 7.24.2023", 
-        "PC Login and Set-up" : "PC Login Set-up 7.25.2023", 
-        "PC Slowness and Lag" : "PC Slowness & Lag 7.25.2023", 
-        "PIF Talking Points and Creditor List"  : "PIF Talking Points and Creditor List 7.25.2023", 
-        "POG Paid Outside of global" : "POG SOP", 
-        "Portal Special Draft Auth-EMT RFSS" : "CLO Portal Special Draft Auth ",
-        "Pre-Legal CS Process" : "Pre-LegalCS process 10.9.24", 
-        "Pritunl Auth Error Troubleshooting" : "Pritunl Authentication Error Troubleshooting 7.25.2023", 
-        "Processing Amendments in the Calc" : "Processing Amendments in the Calculator 7.25.2023",
-        "Purged Account Process" : "Purged Account Process",
-        "R11 Number Code" : "R11 Return SOP 1", 
-        "Recording Calls" : "Recording Calls 7.25.2023", 
-        "Request Queue Follow Up" : "Request Queue Follow-Up 7.25.2023",
-        "Sending Faxes Through QuickBase" : "Sending Faxes Through QuickBase", 
-        "Sending OneSpan Documents" : "Sending Documents through OneSpan 8.1.2024", 
-        "Setting Follow Ups" : "Setting Follow Ups 7.20.2023",
-        "Setting up pritunl VPN" : "Setting up Pritunl VPN 7.20.2023", 
-        "Special Draft PK and Email Process" : "Special Draft PK and Email Process 5.21.2024",
-        "Sub Status for Rejected Settlement" : "Sub Status for Rejected Settlement Authorizations SOP", 
-        "Submitting EMT Requests" : "SubmittingEMTRequest ", 
-        "Texting Clients via QB" : "Texting Clients via QB 7.21.2023", 
-        "Turn off cache exchange mode in outlook" : "Turn Off Cache exchange mode in Outlook7.24.2023", 
-        "UMA format" : "UMA SOP 8.12.25",
-        "Unresponsive Emails" : "Unresponsive Emails SOP 06.06",
-        "Updating Banking Information" : "Updating Banking Information_9.18.24", 
-        "Updating Clients contact information" : "Updating Clients Contact Information 10.17.25", 
-        "Updating creditor information" : "Updating Creditor Information 7.20.2023", 
-        "Using Microsoft teams" : "Using Microsoft Teams 7.19.2023",
-        "Warm Transfer via InContact" : "Warm Transfer via InContact ", 
-        "Which adapter will you need" : "Which adapter you need"
+        "NCA transfer Key": "NCA Transfer Key 7.26.2023",
+        "New Creditor Profile": "New Creditor Profile 7.24.2023",
+        "NSF Return Reasons and Codes": "NSF Return Reasons and Codes 7.19.2023",
+        "Obtaining Settled in Full Letter (SIF)": "Obtaining Settled in Full Letters FAQ 7.20.2023",
+        "OneDrive file transfer guide": "OneDrive file transfer guide 7.24.2023",
+        "PC Login and Set-up": "PC Login Set-up 7.25.2023",
+        "PC Slowness and Lag": "PC Slowness & Lag 7.25.2023",
+        "PIF Talking Points and Creditor List": "PIF Talking Points and Creditor List 7.25.2023",
+        "POG Paid Outside of global": "POG SOP",
+        "Portal Special Draft Auth-EMT RFSS": "CLO Portal Special Draft Auth ",
+        "Pre-Legal CS Process": "Pre-LegalCS process 10.9.24",
+        "Pritunl Auth Error Troubleshooting": "Pritunl Authentication Error Troubleshooting 7.25.2023",
+        "Processing Amendments in the Calc": "Processing Amendments in the Calculator 7.25.2023",
+        "R11 Number Code": "R11 Return SOP 1", 
+        "Recording Calls": "Recording Calls 7.25.2023", 
+        "Request Queue Follow Up": "Request Queue Follow-Up 7.25.2023",
+        "Sending Faxes Through QuickBase": "Sending Faxes Through QuickBase", 
+        "Sending OneSpan Documents": "Sending Documents through OneSpan 8.1.2024", 
+        "Setting Follow Ups": "Setting Follow Ups 7.20.2023",
+        "Setting up pritunl VPN": "Setting up Pritunl VPN 7.20.2023", 
+        "Special Draft PK and Email Process": "Special Draft PK and Email Process 5.21.2024",
+        "Sub Status for Rejected Settlement": "Sub Status for Rejected Settlement Authorizations SOP", 
+        "Submitting EMT Requests": "SubmittingEMTRequest ", 
+        "Texting Clients via QB": "Texting Clients via QB 7.21.2023", 
+        "Turn off cache exchange mode in outlook": "Turn Off Cache exchange mode in Outlook7.24.2023", 
+        "UMA format": "UMA SOP 8.12.25",
+        "Unresponsive Emails": "Unresponsive Emails SOP 06.06",
+        "Updating Banking Information": "Updating Banking Information_9.18.24", 
+        "Updating Clients contact information": "Updating Clients Contact Information 10.17.25", 
+        "Updating creditor information": "Updating Creditor Information 7.20.2023", 
+        "Using Microsoft teams": "Using Microsoft Teams 7.19.2023",
+        "Warm Transfer via InContact": "Warm Transfer via InContact ", 
+        "Which adapter will you need": "Which adapter you need",
+
+        // --- QRG MAPPING (AUDITED) ---
+        "1099C PPT": "qrg  1099C PPT",
+        "Add Funds through Client Portal - Walkthrough": "Add Funds through Client Portal - Walkthrough",
+        "Adding & Removing Co-Client QRG": "Adding & Removing Co-Client QRG 7.20.23",
+        "Affiliate Model": "Affiliate Model 9.26.2025",
+        "Agent Notes QRG": "Agent Notes QRG 8.6.24",
+        "Authorized Third Parties QRG": "Authorized Third Parties QRG",
+        "Cancel Request - CS": "Cancel Request - CS 8.15.24",
+        "Client Portal - MultiFactorAuthentication Client": "Client Portal - MultiFactorAuthentication Client - 12.14.23",
+        "Client Sensitive Changes Talking Points": "Client Sensitive Changes Talking Points 12.14.23",
+        "COA Graduation Email QRG": "COA Graduation Email QRG",
+        "Creating SPAA - Updating Bank Info QRG": "Creating SPAA - Updating Bank Info QRG 7.26.23",
+        "Debt Consolidation QRG_ CLG": "Debt Consolidation QRG_ CLG 7.26.23",
+        "Deceased Client QRG": "Deceased Client QRG 7.26.23",
+        "Draft Change QRG": "Draft Change QRG 9.21.23",
+        "Draft Change Talking Points": "Draft Change Talking Points 11.19.25",
+        "Draft Edits via Client Portal": "Draft Edits via Client Portal 11-25-2024",
+        "Global Expedited Deposits QRG": "Global Expedited Deposits QRG 10.10.23",
+        "Global Holdings Mobile App": "Global Holdings Mobile App 2.7.2024",
+        "Global Validation Request QRG": "Global Validation Request QRG 11.22.2024",
+        "Hardship Plan QRG": "Hardship Plan QRG 7.26.2023",
+        "High Value": "High Value 8.17.23",
+        "How to setup your new PC": "How to setup your new PC 7.25.2023",
+        "IC Dispositions QRG": "IC Dispositions QRG 1.16.24",
+        "Legal Examples": "Legal Examples 4.26.24",
+        "Legal Training": "Legal Training",
+        "Legal_PreLegal QRG CLG": "Legal_PreLegal QRG CLG 8.16.24",
+        "Mail request QRG": "Mail request QRG 9.26.2025",
+        "New Creditor Profile QRG": "New Creditor Profile QRG 7.24.2023",
+        "OneSpan QRG": "OneSpan QRG 6-27-2024",
+        "PCA Reject 4.13 QRG": "PCA Reject 4.13 QRG 7.25.2023",
+        "Pre-settlement and Settlements Authorization QRG": "Pre -settlement and Settlements Authorization QRG 6.11.2024",
+        "Processing Amendments in the Calculator QRG": "Processing Amendments in the Calculator QRG 7.25.2023",
+        "Program Change QRG": "Program Change QRG 8.29.2025",
+        "Refund-Withdrawal Request QRG": "Refund-Withdrawal Request QRG 8.12.25",
+        "Request Guide": "Request Guide 8-29-2025",
+        "Retainer QRG": "Retainer QRG 7.25.2023",
+        "SOS_RFSS Change effective 1.1.23 Talking Points": "SOS_RFSS Change effective 1.1.23 Talking Points 7.20.2023",
+        "Spanish Queue QRG": "Spanish Queue QRG 5.19.2025",
+        "Special Draft, Redraft and Program Draft QRG": "Special Draft, Redraft and Program Draft QRG 7.26.2023",
+        "Talking points for alternative to OB email": "Talking points for alternative to OB email 7.26.23",
+        "Texting Clients Via QB QRG": "Texting Clients Via QB QRG 7.21.2023",
+        "Turning off cache exchange mode": "Turning off cache exchange mode (3)7.20.2023",
+        "Unacceptable Creditors or additional requirements": "Unacceptable Creditors or additional requirements 11.19.2025",
+        "Update Contact Information QR": "Update Contact Information QR.pdf' 2.5.24",
+        "UW Guidelines": "UW Guidelines 10.29.25 13k",
+        "UW(AFF) Guidelines": "UW(AFF) Guidelines 2.11.25 DAA",
+        "Viewing Creditor Payments QRG": "Viewing Creditor Payments QRG (PIF Accounts)7.25.2023"
     };
     return fileMap[displayName] || displayName;
 }
 
-function loadSOPs() {
-    const container = document.getElementById('sopList');
-    if (!container) return;
-    container.innerHTML = ""; 
+function createDocItem(docName) {
+    const fileName = getActualFileName(docName);
+    
+    // 1. Identify if the file is a PDF (based on your specific list)
+    const pdfFiles = [
+        "Headset Audio Troubleshooting Tips 7.26.2023 (1)",
+        "How to setup your new PC 7.25.2023",
+        "Turning off cache exchange mode (3)7.20.2023",
+        "UW Guidelines 10.29.25 13k",
+        "UW(AFF) Guidelines 2.11.25 DAA"
+    ];
 
-    sopDocs.sort().forEach(doc => {
-        const li = document.createElement('li');
-        li.className = 'doc-item';
-        
-        const fileName = getActualFileName(doc);
-        const pdfPath = `docs/${fileName}.pdf`;
-        const safeLink = encodeURI(pdfPath);
+    let extension = ".pptx"; 
+    if (pdfFiles.includes(fileName) || sopDocs.includes(docName)) {
+        extension = ".pdf";
+    }
+    
+    // 2. CONSTRUCT THE ABSOLUTE URL
+    // Replace 'chubbyrics' if your GitHub username is different
+    const baseUrl = "https://chubbyrics.github.io/Docuview/";
+    const fullFilePath = `${baseUrl}docs/${fileName}${extension}`;
+    
+    // 3. GENERATE THE FINAL LINK
+    let finalLink;
+    if (extension === ".pptx") {
+        // Microsoft Viewer needs the full internet address encoded
+        const encodedUrl = encodeURIComponent(fullFilePath);
+        finalLink = `https://view.officeapps.live.com/op/view.aspx?src=${encodedUrl}`;
+    } else {
+        // PDFs can stay as relative links for speed
+        finalLink = encodeURI(`docs/${fileName}${extension}`);
+    }
 
-        // Making the entire inner content a link that spans the whole box
-        li.innerHTML = `
-            <a href="${safeLink}" target="_blank" rel="noopener noreferrer" class="doc-link">
-                <span class="doc-name">${doc}</span>
-                <span class="open-icon">📄 Open</span>
-            </a>
-        `;
-        container.appendChild(li);
-    });
+    const li = document.createElement('li');
+    li.className = 'doc-item';
+    li.innerHTML = `
+        <a href="${finalLink}" target="_blank" rel="noopener noreferrer" class="doc-link">
+            <span class="doc-name">${docName}</span>
+            <span class="open-icon">${extension === ".pptx" ? '📊 View Slides' : '📄 Open PDF'}</span>
+        </a>
+    `;
+    return li;
+}
+
+function loadAllLists() {
+    const sopContainer = document.getElementById('sopList');
+    const qrgContainer = document.getElementById('qrgList');
+    if (!sopContainer || !qrgContainer) return;
+
+    sopDocs.sort().forEach(doc => sopContainer.appendChild(createDocItem(doc)));
+    qrgDocs.sort().forEach(doc => qrgContainer.appendChild(createDocItem(doc)));
 }
 
 function filterDocs() {
     const input = document.getElementById('searchInput').value.toLowerCase();
     const items = document.getElementsByClassName('doc-item');
-    for (let i = 0; i < items.length; i++) {
-        const text = items[i].getElementsByTagName('span')[0].innerText.toLowerCase();
-        items[i].style.display = text.includes(input) ? "" : "none";
-    }
+    Array.from(items).forEach(item => {
+        const text = item.querySelector('.doc-name').innerText.toLowerCase();
+        item.style.display = text.includes(input) ? "" : "none";
+    });
 }
 
-document.addEventListener('DOMContentLoaded', loadSOPs);
+document.addEventListener('DOMContentLoaded', loadAllLists);

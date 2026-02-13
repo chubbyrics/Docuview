@@ -142,3 +142,43 @@ h1 {
     font-weight: 700;
     box-shadow: 0 4px 15px var(--primary-glow);
 }
+/* 2-Column Layout Logic */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 40px;
+    max-width: 1300px; /* Wide enough for side-by-side */
+    margin: 0 auto;
+    padding: 0 20px 50px 20px;
+    align-items: start;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+    padding-left: 10px;
+}
+
+.section-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.icon {
+    font-size: 1.5rem;
+    filter: drop-shadow(0 0 5px var(--primary-glow));
+}
+
+/* Responsiveness: Stack to 1 column on tablets/phones */
+@media (max-width: 1000px) {
+    .main-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}

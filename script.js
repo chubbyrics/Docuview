@@ -214,7 +214,8 @@ function createDocItem(docName) {
         "How to setup your new PC 7.25.2023",
         "Turning off cache exchange mode (3)7.20.2023",
         "UW Guidelines 10.29.25 13k",
-        "UW(AFF) Guidelines 2.11.25 DAA"
+        "UW(AFF) Guidelines 2.11.25 DAA",
+        "PCA Reject 4.13 QRG 7.25.2023",
     ];
 
     let extension = ".pptx"; 

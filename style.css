@@ -1,81 +1,144 @@
 :root {
-    --primary: #2563eb;
-    --bg: #f8fafc;
-    --text: #1e293b;
-    --card: #ffffff;
+    /* Deep Aesthetic Violet Palette */
+    --primary: #8b5cf6;       /* Bright Violet */
+    --primary-glow: rgba(139, 92, 246, 0.5);
+    --bg-dark: #0f0720;       /* Midnight Purple */
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --text-bright: #ffffff;
+    --text-dim: #cbd5e1;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg);
-    color: var(--text);
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-bright);
     margin: 0;
     padding: 20px;
+    /* Aesthetic Mesh Gradient Background */
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(175, 102, 232, 0.779) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(88, 52, 171, 0.723) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(121, 65, 205, 0.634) 0px, transparent 50%);
+    background-attachment: fixed;
+    min-height: 100vh;
 }
 
 header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
-h1 { color: var(--primary); }
+h1 { 
+    font-size: 3rem;
+    background: linear-gradient(to bottom right, #fff, #c4b5fd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 10px var(--primary-glow));
+}
 
+/* Glassmorphic Search Bar */
 .search-container {
-    max-width: 500px;
+    max-width: 600px;
     margin: 20px auto;
 }
 
 #searchInput {
     width: 100%;
-    padding: 12px 20px;
-    border: 2px solid #ddd;
-    border-radius: 25px;
-    font-size: 16px;
-    transition: border-color 0.3s;
+    padding: 16px 28px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px); /* Frosted glass effect */
+    border: 1px solid var(--glass-border);
+    border-radius: 40px;
+    color: white;
+    font-size: 17px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
+#searchInput::placeholder { color: rgba(255,255,255,0.4); }
 
 #searchInput:focus {
     outline: none;
+    background: rgba(255, 255, 255, 0.15);
     border-color: var(--primary);
+    box-shadow: 0 0 25px var(--primary-glow);
+    transform: scale(1.03);
 }
 
+/* Document List Area */
 .doc-section {
-    max-width: 800px;
-    margin: 0 auto 40px auto;
+    max-width: 850px;
+    margin: 0 auto;
 }
 
 .doc-list {
     list-style: none;
     padding: 0;
     display: grid;
-    gap: 10px;
+    gap: 16px;
 }
 
+/* Glassmorphic Document Cards */
 .doc-item {
-    background: var(--card);
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: transform 0.2s;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.doc-item::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transition: 0.5s;
+}
+
+.doc-item:hover::before {
+    left: 100%;
 }
 
 .doc-item:hover {
-    transform: translateX(5px);
-    border-left: 4px solid var(--primary);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--primary);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
-.btn-group a {
+.doc-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 32px;
     text-decoration: none;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 4px;
-    margin-left: 5px;
-    text-transform: uppercase;
+    color: inherit;
 }
 
-.pdf-btn { background: #fee2e2; color: #b91c1c; }
-.csv-btn { background: #dcfce7; color: #15803d; }
+.doc-name {
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    color: var(--text-dim);
+    transition: color 0.3s;
+}
+
+.doc-item:hover .doc-name {
+    color: white;
+}
+
+/* Aesthetic Badge */
+.open-icon {
+    font-size: 0.75rem;
+    background: var(--primary);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+    box-shadow: 0 4px 15px var(--primary-glow);
+}

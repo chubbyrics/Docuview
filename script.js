@@ -1,7 +1,7 @@
 // Full Alphabetized SOP Library
 const sopDocs = [
     "Accessing Client Emails and Faxes", "Accessing Global", "Accronyms", "Adding an Alert", 
-    "Adding Unmatched Debt", "Adding/ Removing Co-Client", "Agent Notes", 
+    "Adding Unmatched Debt", "Adding/ Removing Co-Client", 
     "Attaching Files to Request and Client File", "Authorized Third Parties", "Cancel Request", 
     "Cancel Request with Active SIFs", "Clear Cache_ Cookies browser", "Client Portal - Multi Factor Authentication", 
     "Client Portal Impersonation", "Client Portal Login & Reset", "Client Portal Trouble Shoot", 
@@ -44,7 +44,7 @@ function getActualFileName(displayName) {
         "Accronyms": "COA Shorthand",
         "Adding an Alert": "Adding an Alert 7.20.23",
         "Adding/ Removing Co-Client": "Adding  Removing Co-Client 8.13.2024",
-        "Agent Notes": "Adding Unmatched Debt 4-4-2025 (2)",
+        "Adding Unmatched Debt": "Adding Unmatched Debt 4-4-2025 (2)",
         "Attaching Files to Request and Client File": "Attaching Files to Request and Client File 7.20.23",
         "Authorized Third Parties": "Authorized Third Parties 8.13.24",
         "Cancel Request": "Cancel Request 8.14.24",
@@ -140,17 +140,17 @@ function loadSOPs() {
     sopDocs.sort().forEach(doc => {
         const li = document.createElement('li');
         li.className = 'doc-item';
+        
         const fileName = getActualFileName(doc);
         const pdfPath = `docs/${fileName}.pdf`;
-        
-        // encodeURI is essential for files with dates and spaces
         const safeLink = encodeURI(pdfPath);
 
+        // Making the entire inner content a link that spans the whole box
         li.innerHTML = `
-            <span>${doc}</span>
-            <div class="btn-group">
-                <a href="${safeLink}" class="pdf-btn" target="_blank" rel="noopener noreferrer">View PDF</a>
-            </div>
+            <a href="${safeLink}" target="_blank" rel="noopener noreferrer" class="doc-link">
+                <span class="doc-name">${doc}</span>
+                <span class="open-icon">📄 Open</span>
+            </a>
         `;
         container.appendChild(li);
     });

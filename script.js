@@ -86,7 +86,7 @@ function getActualFileName(displayName) {
         "Contact list": "Contact List 9.20.2023",
         "Creating a PDF": "Creating PDF SOP 8.28.23",
         "Credit Pull SOP": "Credit Pull 7.21.23",
-        "Deceased Client": "Deceased Client 10.2.2025",
+        "Deceased Client": "Deceased Client",
         "Draft Change": "Draft Changes 11.19.25",
         "Draft Increase": "Draft Increase 8.14.24",
         "Draft Skip": "Draft Skip SOP",
